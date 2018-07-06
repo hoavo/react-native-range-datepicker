@@ -41,6 +41,9 @@ export default class RangeDatepicker extends Component {
     initialMonth: "",
     dayHeadings: ["S", "M", "T", "W", "T", "F", "S"],
     maxMonth: 12,
+    closeTitle: 'Close',
+    resetTitle: 'Reset',
+    selectTitle: 'Select Date',
     buttonColor: "green",
     buttonContainerStyle: {},
     showReset: true,
@@ -214,12 +217,12 @@ export default class RangeDatepicker extends Component {
           <View style={{ flexDirection: "row", justifyContent: "space-between", padding: 20, paddingBottom: 10 }}>
             {this.props.showClose && (
               <Text style={{ fontSize: 20 }} onPress={this.props.onClose}>
-                Close
+                {this.props.closeTitle}
               </Text>
             )}
             {this.props.showReset && (
               <Text style={{ fontSize: 20 }} onPress={this.onReset}>
-                Reset
+                {this.props.resetTitle}
               </Text>
             )}
           </View>
@@ -271,7 +274,7 @@ export default class RangeDatepicker extends Component {
           showsVerticalScrollIndicator={false}
         />
         <View style={[styles.buttonWrapper, this.props.buttonContainerStyle]}>
-          <Button title="Select Date" onPress={this.handleConfirmDate} color={this.props.buttonColor} />
+          <Button title={this.props.selectTitle} onPress={this.handleConfirmDate} color={this.props.buttonColor} />
         </View>
       </View>
     );
